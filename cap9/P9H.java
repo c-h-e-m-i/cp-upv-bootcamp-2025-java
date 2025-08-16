@@ -21,7 +21,7 @@ public class P9H {
         boolean[] capas = new boolean[n + 1];
 
         for (int i = 1; i <= n; i++) {
-            capas[i] = sc.next().charAt(0) > 'A';
+            capas[i] = sc.next().charAt(0) == 'F';
         }
 
         SegmentTree st = new SegmentTree(capas);
@@ -109,13 +109,12 @@ public class P9H {
 
     @SuppressWarnings("unused")
     private static class SegmentTree {
-        int datoIni, datoFin, max;
+        int datoIni, datoFin;
         boolean[] datos;
         Nodo[] arbol;
 
         SegmentTree(boolean[] datos) {
             this.datos = datos;
-            this.max = 0;
         }
 
         void construir() {
@@ -161,9 +160,7 @@ public class P9H {
         }
 
         int maxSub(int ini, int fin) {
-            max = 0;
-            maxSub(1, ini, fin, this.datoIni, this.datoFin);
-            return max;
+            return maxSub(1, ini, fin, this.datoIni, this.datoFin).max;
         }
 
         private Nodo maxSub(int actual, int ini, int fin, int tI, int tF) {
@@ -172,8 +169,6 @@ public class P9H {
 
             if (ini == tI && fin == tF) {
                 Nodo act = arbol[actual];
-                if (act.max > this.max)
-                    this.max = act.max;
                 return act;
             }
 
@@ -181,11 +176,7 @@ public class P9H {
             Nodo izq = maxSub(actual * 2, ini, Math.min(fin, tM), tI, tM),
                     der = maxSub(actual * 2 + 1, Math.max(ini, tM + 1), fin, tM + 1, tF);
 
-            Nodo padre = combinar(izq, der);
-            if (padre.max > this.max)
-                this.max = padre.max;
-
-            return padre;
+            return combinar(izq, der);
         }
 
         void actualizar(int elem, boolean nuevoValor) {
