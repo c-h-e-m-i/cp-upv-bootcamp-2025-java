@@ -1,0 +1,4 @@
+2 2
+piedra papel tijera papel
+4 tijera
+1 tijera
