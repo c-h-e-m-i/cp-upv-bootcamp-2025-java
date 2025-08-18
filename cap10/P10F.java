@@ -139,34 +139,4 @@ public class P10F {
             return Boolean.parseBoolean(next());
         }
     }
-
-    @SuppressWarnings("unused")
-    private static class Pair implements Comparable<Pair> {
-        int a, b;
-
-        Pair(int a, int b) {
-            this.a = a;
-            this.b = b;
-        }
-
-        @Override
-        public int compareTo(Pair p) {
-            return this.a - p.a;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o)
-                return true;
-            if (!(o instanceof Pair))
-                return false;
-            Pair p = (Pair) o;
-            return p.a == this.a;
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(a, b);
-        }
-    }
 }
