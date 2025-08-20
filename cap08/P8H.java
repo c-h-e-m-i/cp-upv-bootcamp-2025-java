@@ -69,12 +69,11 @@ public class P8H {
 
         while (!pendientes.isEmpty()) {
             ini = pendientes.pop();
-            if (grafo[ini].size() > 0) {
+            if (!grafo[ini].isEmpty()) {
                 int sig = grafo[ini].poll();
                 grafo[sig].remove(ini);
                 pendientes.push(ini);
                 pendientes.push(sig);
-                ini = sig;
             } else {
                 res.push(ini);
             }
@@ -150,4 +149,5 @@ public class P8H {
             return Boolean.parseBoolean(next());
         }
     }
+
 }
