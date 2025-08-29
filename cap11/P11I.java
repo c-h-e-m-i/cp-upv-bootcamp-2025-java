@@ -15,7 +15,7 @@ public class P11I {
 
     public static void solve() throws IOException {
         /*
-         * Leemos la puntos de entrada y calculamos el de mínima Y (si hay 2 con la
+         * Leemos los puntos de entrada y calculamos el de mínima Y (si hay 2 con la
          * misma Y, de esos 2 cogemos el que tenga menor X). Los guardaré en una
          * LinkedList para poder borrar fácilmente dicho punto después de encontrarlo:
          */
@@ -61,16 +61,17 @@ public class P11I {
                 return dif_a.mod2() < dif_b.mod2() ? -1 : 1;
         });
 
-        // Una vez ordenada la lista, guardo los 2 primeros puntos en la pila donde
+        // Una vez ordenada la lista, guardamos los 2 primeros puntos en la pila donde
         // almacenaremos la envolvente:
         Stack<Punto> hull = new Stack<>();
         hull.push(min_punto);
         hull.push(puntos.poll());
 
         /*
-         * Mientras queden puntos por analizar, los voy guardando en 'sig' y compruebo
-         * que el vector que forman con el último punto de la envolvente actual ('act')
-         * represente un giro antihorio respecto del vector formado por 'ant' y 'act':
+         * Mientras queden puntos por analizar, los vamos guardando en 'sig' y
+         * comprobamos que el vector que forman con el último punto de la envolvente
+         * actual ('act') represente un giro antihorio respecto del vector formado por
+         * 'ant' y 'act':
          */
         while (!puntos.isEmpty()) {
             Punto sig = puntos.poll();
@@ -87,7 +88,7 @@ public class P11I {
             hull.push(sig);
         }
 
-        // Finalmente emplearé el teorema del cordel para calcular el área:
+        // Finalmente, empleamos el teorema del cordel para calcular el área:
         if (hull.size() < 3)
             System.out.printf("0.0000");
         else
