@@ -2,4 +2,4 @@ Aquí recojo todas mis soluciones a los problemas del Summer Bootcamp 2025 de CP
 
 Si bien aquí se incluyen exclusivamente las soluciones en Java, próximamente espero tener otro repositorio con algunos de los problemas en C++ también :)
 
-Nota: Al haber rule switches en algunos problemas, estos solo funcionarán en Java 12+. Para ejecutarlos en Java 8, asegúrate de cambiarlos a switches normales antes de correr el programa.
+Nota: Al haber rule switches en algunos problemas, estos solo funcionarán en Java 12+. Para ejecutarlos en versiones anteriores, asegúrate de cambiarlos a switches normales antes de correr el programa.
