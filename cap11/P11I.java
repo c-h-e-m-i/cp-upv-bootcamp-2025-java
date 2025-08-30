@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+@SuppressWarnings("unused")
 public class P11I {
     static Lector sc;
     static StringBuilder output;
@@ -214,3 +215,4 @@ public class P11I {
         }
     }
 }
+
