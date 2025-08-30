@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+@SuppressWarnings("unused")
 public class P11H {
     static Lector sc;
     static StringBuilder output;
@@ -270,4 +271,5 @@ public class P11H {
             return Math.sqrt(this.x * this.x + this.y * this.y);
         }
     }
+
 }
